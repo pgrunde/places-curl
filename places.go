@@ -2,19 +2,23 @@ package main
 
 type (
 	Place struct {
-		Geometry      location
-		Icon          string
-		Id            string
-		Name          string
-		Opening_hours hours
-		Place_id      string
-		Reference     string
-		Scope         string
-		Types         []string
-		Vicinity      string
+		Geometry     geometry
+		Icon         string
+		Id           string
+		Name         string
+		OpeningHours hours  `json:"opening_hours"`
+		PlaceId      string `json:"place_id"`
+		Reference    string
+		Scope        string
+		Types        []string
+		Vicinity     string
 	}
 
 	Places []Place
+
+	geometry struct {
+		Location location
+	}
 
 	location struct {
 		Lat float64
@@ -22,8 +26,8 @@ type (
 	}
 
 	hours struct {
-		Open_now     bool
-		Weekday_text []string
+		OpenNow     bool     `json:"open_now"`
+		WeekdayText []string `json:"weekday_text"`
 	}
 
 	rawData struct {

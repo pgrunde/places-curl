@@ -38,10 +38,10 @@ func Verbose(places Places) {
 		fmt.Printf("%q,%q,%f,%f,%q,%t,%v\n",
 			p.Name,
 			p.Vicinity,
-			p.Geometry.Lat,
-			p.Geometry.Lng,
+			p.Geometry.Location.Lat,
+			p.Geometry.Location.Lng,
 			p.Icon,
-			p.Opening_hours.Open_now,
+			p.OpeningHours.OpenNow,
 			p.Types,
 		)
 	}
@@ -50,11 +50,11 @@ func Verbose(places Places) {
 func Brief(places Places) {
 	fmt.Println("Name,Address,Lat,Lng")
 	for _, p := range places {
-		fmt.Printf("%q,%q,%f,%f",
+		fmt.Printf("%q,%q,%f,%f\n",
 			p.Name,
 			p.Vicinity,
-			p.Geometry.Lat,
-			p.Geometry.Lng,
+			p.Geometry.Location.Lat,
+			p.Geometry.Location.Lng,
 		)
 	}
 }
